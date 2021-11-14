@@ -1,0 +1,67 @@
+micronaut:
+  application:
+    name: awards
+  router:
+    static-resources:
+      default:
+        enabled: true
+        mapping: /**
+      swagger:
+        paths: classpath:META-INF/swagger
+        mapping: /swagger/**
+        enabled: true
+      swagger-ui:
+        paths: classpath:META-INF/swagger/views/swagger-ui
+        mapping: /swagger-ui/**
+        enabled: true
+  server:
+    port: "${PORT}"
+  context-path: /api/v1
+  security:
+    authentication: bearer
+    endpoints:
+      login:
+        path: /auth/login
+      oauth:
+        path: /auth/refresh
+    intercept-url-map:
+      - pattern: /swagger-ui/**
+        http-method: GET
+        access:
+          - isAnonymous()
+    token:
+      jwt:
+        enabled: true
+        generator:
+          refresh-token:
+            enabled: true
+            secret: "${JWT_SECRET}"
+          access-token:
+            expiration: 25000
+        signatures:
+          secret:
+            generator:
+              secret: "${JWT_SECRET}"
+    reject-not-found: false
+datasources:
+  default:
+    url: "${DB_CONN_URL}"
+    driverClassName: oracle.jdbc.driver.OracleDriver
+    username: "${DB_USERNAME}"
+    password: "${DB_PASSWORD}"
+    dialect: org.hibernate.dialect.Oracle10gDialect
+jpa:
+  default:
+    packages-to-scan:
+      - rltw.awards
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: none
+        show_sql: true
+liquibase:
+  datasources:
+    default:
+      change-log: classpath:db/changelog.xml
+jackson:
+  serialization-inclusion: always
