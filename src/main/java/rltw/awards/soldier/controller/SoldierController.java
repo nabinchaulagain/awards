@@ -18,7 +18,7 @@ import java.util.List;
 
 @Tag(name = "Soldiers")
 @Controller("/soldiers")
-@Secured(SecurityRule.IS_AUTHENTICATED)
+@Secured(SecurityRule.IS_ANONYMOUS)
 public class SoldierController {
     @Inject
     private SoldierService soldierService;

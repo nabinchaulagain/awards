@@ -17,7 +17,8 @@ import java.util.Map;
 
 @Singleton
 @Replaces(ConstraintExceptionHandler.class)
-public class ConstraintValidationExceptionHandler implements ExceptionHandler<ConstraintViolationException, HttpResponse> {
+public class ConstraintValidationExceptionHandler implements
+        ExceptionHandler<ConstraintViolationException, HttpResponse> {
 
     @Override
     public HttpResponse handle(HttpRequest request, ConstraintViolationException exception) {

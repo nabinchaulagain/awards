@@ -20,6 +20,7 @@ public class Soldier {
     private String name;
 
     @Column(name = "date_of_birth")
+    @NotEmpty
     private Date dateOfBirth;
 
     @Column(name = "date_of_death")
@@ -30,12 +31,44 @@ public class Soldier {
     private String birthplace;
 
     @Column(name = "deathplace")
-    @NotEmpty
     private String deathplace;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "unit_id")
     private Unit unit;
+
+    @Column(name = "service_start_date")
+    private Date serviceStartDate;
+
+    @Column(name = "rank")
+    private String rank;
+
+    public String getRank() {
+        return rank;
+    }
+
+    public void setRank(String rank) {
+        this.rank = rank;
+    }
+
+    public Date getServiceStartDate() {
+        return serviceStartDate;
+    }
+
+    public void setServiceStartDate(Date serviceStartDate) {
+        this.serviceStartDate = serviceStartDate;
+    }
+
+    public Date getServiceEndDate() {
+        return serviceEndDate;
+    }
+
+    public void setServiceEndDate(Date serviceEndDate) {
+        this.serviceEndDate = serviceEndDate;
+    }
+
+    @Column(name = "service_end_date")
+    private Date serviceEndDate;
 
     public long getId() {
         return id;

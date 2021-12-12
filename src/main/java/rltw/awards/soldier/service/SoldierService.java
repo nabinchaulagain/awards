@@ -7,8 +7,7 @@ import rltw.awards.soldier.constants.SoldierConstants;
 import rltw.awards.soldier.model.Soldier;
 import rltw.awards.soldier.repository.SoldierRepository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -32,6 +31,9 @@ public class SoldierService {
         soldier.setDateOfBirth(editedSoldier.getDateOfBirth());
         soldier.setDateOfDeath(editedSoldier.getDateOfDeath());
         soldier.setUnit(editedSoldier.getUnit());
+        soldier.setServiceEndDate(editedSoldier.getServiceEndDate());
+        soldier.setServiceStartDate(editedSoldier.getServiceStartDate());
+        soldier.setRank(editedSoldier.getRank());
 
         return soldier;
     }

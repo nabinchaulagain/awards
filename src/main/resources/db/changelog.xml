@@ -17,6 +17,7 @@
     <include file="migrations/create_units_table.sql" relativeToChangelogFile="true"/>
     <include file="migrations/create_soldier_id_sequence.sql" relativeToChangelogFile="true"/>
     <include file="migrations/create_soldiers_table.sql" relativeToChangelogFile="true"/>
+    <include file="migrations/alter_soldiers_table.sql" relativeToChangelogFile="true"/>
 
     <include file="migrations/seed_roles.sql" relativeToChangelogFile="true"/>
 </databaseChangeLog>
