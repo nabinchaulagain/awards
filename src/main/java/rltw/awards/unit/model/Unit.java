@@ -66,4 +66,15 @@ public class Unit {
     public void setEstablishedDate(Date establishedDate) {
         this.establishedDate = establishedDate;
     }
+
+    @Override
+    public String toString() {
+        return "Unit{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", country='" + country + '\'' +
+                ", branch='" + branch + '\'' +
+                ", establishedDate=" + establishedDate +
+                '}';
+    }
 }

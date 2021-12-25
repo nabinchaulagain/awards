@@ -1,5 +1,7 @@
 package rltw.awards.soldier.model;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import rltw.awards.unit.model.Unit;
 
 import javax.persistence.*;
@@ -11,6 +13,7 @@ import java.util.Date;
 @Table(name = "soldiers")
 @SequenceGenerator(name = "soldier_id_sequence", allocationSize = 1)
 public class Soldier {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "soldier_id_sequence")
     private long id;
@@ -33,8 +36,8 @@ public class Soldier {
     @Column(name = "deathplace")
     private String deathplace;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "unit_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "unit_id", referencedColumnName = "id", insertable = false, updatable = false)
     private Unit unit;
 
     @Column(name = "service_start_date")
