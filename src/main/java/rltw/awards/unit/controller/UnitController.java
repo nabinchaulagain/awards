@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.inject.Inject;
 import rltw.awards.auth.constant.AuthConstants;
 import rltw.awards.common.constants.Roles;
+import rltw.awards.common.util.S3Service;
 import rltw.awards.unit.constant.UnitConstants;
 import rltw.awards.unit.model.Unit;
 import rltw.awards.unit.service.UnitService;
@@ -21,6 +22,9 @@ import java.util.List;
 @Controller("/units")
 @Secured(SecurityRule.IS_ANONYMOUS)
 public class UnitController {
+    @Inject
+    private S3Service s3Service;
+
     @Inject
     private UnitService unitService;
 
