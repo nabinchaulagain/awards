@@ -37,7 +37,7 @@ public class Soldier {
     private String deathplace;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "unit_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @JoinColumn(name = "unit_id", referencedColumnName = "id")
     private Unit unit;
 
     @Column(name = "service_start_date")
@@ -45,6 +45,28 @@ public class Soldier {
 
     @Column(name = "rank")
     private String rank;
+
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "picture")
+    private String picture;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
 
     public String getRank() {
         return rank;

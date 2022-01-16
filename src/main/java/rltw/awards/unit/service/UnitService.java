@@ -16,7 +16,7 @@ public class UnitService {
     UnitRepository unitRepository;
 
     public List<Unit> getAll() {
-        return (List<Unit>) unitRepository.findAll();
+        return (List<Unit>) unitRepository.listOrderByIdDesc();
     }
 
     public Unit getUnit(long id) {

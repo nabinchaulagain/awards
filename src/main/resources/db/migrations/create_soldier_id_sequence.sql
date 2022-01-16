@@ -8,9 +8,9 @@ BEGIN
 EXCEPTION
     WHEN OTHERS THEN
         IF sqlcode = -955 THEN
-            RAISE;
-        ELSE
             NULL;
+        ELSE
+            RAISE;
         END IF;
 END ;
 /

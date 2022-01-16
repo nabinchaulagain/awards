@@ -9,6 +9,7 @@ import io.micronaut.http.annotation.Post;
 import io.micronaut.http.multipart.CompletedFileUpload;
 import io.micronaut.security.annotation.Secured;
 import io.micronaut.security.rules.SecurityRule;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.inject.Inject;
 import rltw.awards.common.util.S3Service;
 
@@ -16,6 +17,7 @@ import java.util.Map;
 
 @Controller("/file")
 @Secured(SecurityRule.IS_ANONYMOUS)
+@Tag(name = "Files")
 public class FileController {
     @Inject
     private S3Service s3Service;

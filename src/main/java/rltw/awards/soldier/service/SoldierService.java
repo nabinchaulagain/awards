@@ -11,7 +11,6 @@ import rltw.awards.soldier.repository.SoldierRepository;
 
 
 import javax.transaction.Transactional;
-import java.util.List;
 
 @Singleton
 public class SoldierService {

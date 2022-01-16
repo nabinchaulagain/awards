@@ -40,6 +40,8 @@ public class SoldierCriteriaBuilder {
         var size = entityManager.createQuery(sizeQuery).getSingleResult();
 
         root.fetch("unit", JoinType.LEFT);
+
+        criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
         var typedQuery = entityManager.createQuery(criteriaQuery);
         typedQuery.setFirstResult((queryParams.getPageNumber() - 1) * queryParams.getPageSize());
         typedQuery.setMaxResults(queryParams.getPageSize());

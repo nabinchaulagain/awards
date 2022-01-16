@@ -12,7 +12,7 @@ micronaut:
         enabled: true
       swagger-ui:
         paths: classpath:META-INF/swagger/views/swagger-ui
-        mapping: /swagger-ui/**
+        mapping: /docs/**
         enabled: true
   server:
     cors:

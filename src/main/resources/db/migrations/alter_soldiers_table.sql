@@ -31,3 +31,19 @@ END;
 /
 
 --rollback ALTER TABLE soldiers DROP COLUMN rank;
+
+
+--changeset nabinchaulagian:alter_soldiers_table:1 endDelimiter:/ rollbackEndDelimiter:/
+BEGIN
+    EXECUTE IMMEDIATE 'ALTER TABLE soldiers ADD (description CLOB, picture VARCHAR2(255 CHAR))';
+EXCEPTION
+    WHEN OTHERS THEN
+        IF sqlcode = -1430 THEN
+            NULL;
+        ELSE
+            RAISE;
+        END IF;
+END;
+/
+--rollback ALTER TABLE soldiers DROP COLUMN description;
+--rollback ALTER TABLE soldiers DROP column picture;
