@@ -58,4 +58,8 @@ public class SoldierController {
         return HttpResponse.ok(SoldierConstants.SOLDIER_DELETED);
     }
 
+    @Get("/test")
+    public HttpResponse test() {
+        return HttpResponse.ok("Hope it's REdeployed");
+    }
 }
