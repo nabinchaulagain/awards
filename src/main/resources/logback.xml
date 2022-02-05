@@ -1,16 +1,25 @@
 <configuration>
 
+    <property name="tz" value="Asia/Kathmandu"></property>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <withJansi>true</withJansi>
         <!-- encoders are assigned the type
              ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
         <encoder>
-            <pattern>%cyan(%d{HH:mm:ss.SSS}) %gray([%thread]) %highlight(%-5level) %magenta(%logger{36}) - %msg%n
+            <pattern>%cyan(%d{HH:mm:ss.SSS,${tz}}) %gray([%thread]) %highlight(%-5level) %magenta(%logger{36}) - %msg%n
             </pattern>
         </encoder>
     </appender>
-
+    <appender name="REQUEST_LOG" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%boldYellow(Request log) - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
     <root level="info">
         <appender-ref ref="STDOUT"/>
     </root>
+    <logger name="rltw.awards.log" level="trace" additivity="false">
+        <appender-ref ref="REQUEST_LOG"></appender-ref>
+    </logger>
 </configuration>
