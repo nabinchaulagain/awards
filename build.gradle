@@ -29,7 +29,7 @@ dependencies {
     implementation("javax.annotation:javax.annotation-api")
     runtimeOnly("ch.qos.logback:logback-classic")
     implementation("io.micronaut:micronaut-validation")
-    implementation files("libs/ojdbc7.jar")
+    implementation 'org.postgresql:postgresql:42.3.2'
     implementation group: 'io.micronaut.data', name: 'micronaut-data-hibernate-jpa', version: '3.0.0'
     implementation group: 'io.micronaut.configuration', name: 'micronaut-jdbc-hikari', version: '2.2.6'
     implementation("io.micronaut.security:micronaut-security-jwt")

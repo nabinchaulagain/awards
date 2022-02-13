@@ -48,10 +48,10 @@ micronaut:
 datasources:
   default:
     url: "${DB_CONN_URL}"
-    driverClassName: oracle.jdbc.driver.OracleDriver
+    driverClassName: org.postgresql.Driver
     username: "${DB_USERNAME}"
     password: "${DB_PASSWORD}"
-    dialect: org.hibernate.dialect.Oracle10gDialect
+    dialect: org.hibernate.dialect.PostgreSQLDialect
 jpa:
   default:
     packages-to-scan:
