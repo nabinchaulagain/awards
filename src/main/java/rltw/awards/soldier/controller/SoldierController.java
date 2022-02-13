@@ -60,6 +60,6 @@ public class SoldierController {
 
     @Get("/test")
     public HttpResponse test() {
-        return HttpResponse.ok("Hope it's REdeployed");
+        return HttpResponse.ok("Hope it's deployed: " + Math.random());
     }
 }
